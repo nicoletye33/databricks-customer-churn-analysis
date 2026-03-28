@@ -9,6 +9,7 @@
   * [Stage 2: Analysis & Modeling (Task 2)](#stage-2-analysis--modeling-task-2)
     * [Part A: Exploratory Data Analysis (Q1–Q2)](#part-a-exploratory-data-analysis-q1q2)
     * [Part B: Machine Learning Pipeline (Q3–Q5) \[My main contribution\]](#part-b-machine-learning-pipeline-q3q5-my-main-contribution)
+* [Results and Key Findings](#results-and-key-findings)
 * [My Contribution Summary](#my-contribution-summary)
 
 ## Project Overview
@@ -202,6 +203,25 @@ Key components:
   auc_pr = binary_evaluator.evaluate(bin_eval_df, {binary_evaluator.metricName: "areaUnderPR"})
   ```
 
+## Results and Key Findings
+
+**Churn Distribution**
+- 26.54% of customers churned, while 73.46% remained
+- The dataset is imbalanced, which impacts model performance
+
+**Key Factors Influencing Churn**
+- Customers with shorter tenure are more likely to churn
+- Higher monthly charges are associated with higher churn rates
+- Certain customer segments (e.g., senior citizens) show different churn patterns
+
+**Model Performance**
+- Model evaluated using ROC/AUC and PR
+- The model demonstrates the ability to identify potential churn customers
+- Results:
+ - Area Under ROC Curve (AUC-ROC): 0.8438
+ - Area Under PR Curve (AUC-PR): 0.6716
+   <img width="706" height="552" alt="image" src="https://github.com/user-attachments/assets/4375aa42-dee3-422f-82c3-f4f99c80a554" />
+
 
 ## My Contribution Summary
 
@@ -212,4 +232,4 @@ My contributions include:
 - Designing and implementing the PySpark ML preprocessing pipeline
 - Performing feature engineering for both categorical and numerical data
 - Constructing reusable transformation workflows using Pipeline
-- Training and evaluating churn prediction models
+- Training and evaluating churn prediction model
