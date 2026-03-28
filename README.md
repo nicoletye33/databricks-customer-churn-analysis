@@ -218,8 +218,8 @@ Key components:
 - Model evaluated using ROC/AUC and PR
 - The model demonstrates the ability to identify potential churn customers
 - Results:
- - Area Under ROC Curve (AUC-ROC): 0.8438
- - Area Under PR Curve (AUC-PR): 0.6716
+  - Area Under ROC Curve (AUC-ROC): 0.8438
+  - Area Under PR Curve (AUC-PR): 0.6716
    <img width="706" height="552" alt="image" src="https://github.com/user-attachments/assets/4375aa42-dee3-422f-82c3-f4f99c80a554" />
 
 
