@@ -33,9 +33,32 @@ Key steps include:
 - Handling inconsistent and non-standard values
   - Converting `"NAN"` strings to null values
   - Standardizing categorical encodings (`"0"/"1"` → `"No"/"Yes"`)
+    ```python
+    # Replace string 'NAN' with SQL NULL
+    df_c2 = df_c2_raw.na.replace('NAN', None)
+    
+    # Fix Categorical Columns (0 -> No, 1 -> Yes)
+    categorical_fix_cols = ['Partner', 'Dependents', 'PhoneService', 'MultipleLines', 
+                            'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 
+                            'TechSupport', 'StreamingTV', 'StreamingMovies', 
+                            'PaperlessBilling', 'Churn']
+    
+    for column in categorical_fix_cols:
+        df_c2 = df_c2.withColumn(column, 
+            when(col(column) == "0", "No")
+            .when(col(column) == "1", "Yes")
+            .otherwise(col(column)))
+    ```
 - Merging datasets
 - Removing duplicate records based on `customerID`
+  ```python
+  df_unique = combined_df.dropDuplicates(['customerID'])
+  ```
 - Filtering invalid rows (e.g., zero or null values)
+  ```python
+  df_final = df_cast.na.drop(subset=["TotalCharges", "tenure", "MonthlyCharges"]) \
+                  .filter(col("TotalCharges") > 0)
+  ```
 
 ### Stage 2: Analysis & Modeling (Task 2)
 
@@ -58,14 +81,13 @@ Feature-level analysis using bar charts and pie charts:
 
 #### Part B: Machine Learning Pipeline (Q3–Q5) [My main contribution]
 
-This stage focuses on building a reusable and scalable PySpark ML pipeline for churn prediction.
+This stage focuses on building a reusable and scalable PySpark ML pipeline for churn prediction using the cleaned data.
 
 Key components:
 
 **1. Data Preparation for ML**
 
 - Train-test split
-- Handling missing and inconsistent values
   ```python
   # Split the data - 70% for training, 30% for testing
   train_df, test_df = df.randomSplit([0.7, 0.3], seed=42)
