@@ -18,7 +18,33 @@ This project focuses on discovering the link between customer characteristics an
 My primary responsibility was the design and implementation of the **machine learning pipeline**. The overall system includes data ingestion, cleaning, transformation, and predictive modeling.
 
 ## Data Sources
-Three CSV files about the **characteristics and service usage of a fictional telecoms company's clients** were provided as part of the coursework. The datasets contain 
+Three CSV files about the **characteristics and service usage of a fictional telecoms company's clients** were provided as part of the coursework. 
+
+The datasets consist of 21 columns:
+```python
+ |-- customerID: string (nullable = true)
+ |-- gender: string (nullable = true)
+ |-- SeniorCitizen: integer (nullable = true)
+ |-- Partner: string (nullable = true)
+ |-- Dependents: string (nullable = true)
+ |-- tenure: integer (nullable = true)
+ |-- PhoneService: string (nullable = true)
+ |-- MultipleLines: string (nullable = true)
+ |-- InternetService: string (nullable = true)
+ |-- OnlineSecurity: string (nullable = true)
+ |-- OnlineBackup: string (nullable = true)
+ |-- DeviceProtection: string (nullable = true)
+ |-- TechSupport: string (nullable = true)
+ |-- StreamingTV: string (nullable = true)
+ |-- StreamingMovies: string (nullable = true)
+ |-- Contract: string (nullable = true)
+ |-- PaperlessBilling: string (nullable = true)
+ |-- PaymentMethod: string (nullable = true)
+ |-- MonthlyCharges: double (nullable = true)
+ |-- TotalCharges: string (nullable = true)
+ |-- Churn: string (nullable = true)
+```
+
 
 ## Tech Stack 
 - Databricks Free Edition
